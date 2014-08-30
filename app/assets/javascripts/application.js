@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.fileupload
+//= require widget
 //= require_tree .

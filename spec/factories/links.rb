@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :link do
     s3_url "MyString"
+    user_id "MyString"
   end
 end
