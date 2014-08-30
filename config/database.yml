@@ -1,0 +1,20 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: one-time-link_development
+  pool: 5
+  username: ericiacutone
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: one-time-link_test
+  pool: 5
+  username: ericiacutone
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: one-time-link_production
+  pool: 5
+  username: ericiacutone
