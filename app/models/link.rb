@@ -28,17 +28,4 @@ class Link < ActiveRecord::Base
     self.confirm_code = string
   end
   
-  def phone_number_format
-    if self.phone_number?
-      phone = self.phone_number.scan(/\d+/).flatten.join('') 
-      if phone.size < 7 || phone.size > 10
-        errors.add(:base, "Phone number needs to be 7 to 10 characters.")
-      end
-      
-      if self.phone_number.scan(/[a-zA-Z]/).present?
-        errors.add(:base, "Phone number cannot include letters.")
-      end
-    end
-  end
-  
 end
