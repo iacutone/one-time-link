@@ -32,7 +32,7 @@ class LinksController < ApplicationController
     respond_to do |format|
       if @link.save
         LinkMailer.email_link(@link).deliver
-        format.html { redirect_to user_path(current_user), notice: 'Link was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Link was successfully created.' }
         format.json { render action: 'show', status: :created, location: @link }
       else
         format.html { render action: 'new' }
