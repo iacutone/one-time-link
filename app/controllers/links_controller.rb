@@ -18,7 +18,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Link was successfully created.' }
         format.json { render action: 'show', status: :created, location: @link }
       else
         format.html { render action: 'new' }
@@ -35,6 +35,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:s3_url)
+      params.require(:link).permit(:s3_url, :email, :key)
     end
 end

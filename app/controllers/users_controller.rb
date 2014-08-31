@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :file_upload]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -60,11 +60,6 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  def file_upload
-    @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: 201, acl: :public_read)
-    @link = Link.new
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,6 +69,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params[:user]
+      params.require(:user).permit(:name, :phone_number)
     end
 end

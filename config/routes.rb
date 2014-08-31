@@ -1,12 +1,9 @@
 OneTimeLink::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
+
   resources :users
   resources :links
   
-  root 'users#file_upload'
-  
-  # namespace :users do
-  #   get 'file_upload', to: 'users#file_upload'
-  # end
+  root 'links#new'
 end
