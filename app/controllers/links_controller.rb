@@ -9,8 +9,7 @@ class LinksController < ApplicationController
         link = open(@link.s3_url.url)
         send_data(link.read)
         @link.s3_url.destroy
-      else
-        flash[:error] = 'Confirmation code is not correct.'
+        @link.destroy
       end
     end
   end

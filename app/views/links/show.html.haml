@@ -1,4 +1,4 @@
-%h1 Download the linked file
+%h1 Download the File
 
 = link_to 'Get confirmation code', "#", class: 'btn get_confirm'
 
@@ -6,14 +6,15 @@
   %h3 Enter Confirmation Code
   %p (from text message)
   = form_tag params, method: :get do 
-    = text_field_tag :confirm_code
-    = submit_tag 'Submit', class: 'btn submit'
+    = text_field_tag :confirm_code, '', placeholder: 'Enter confirmation code'
+    = submit_tag 'Submit', class: 'btn submit messages'
+  .messages
 
 :javascript
   $('.confirm_form').hide();
-  
-  var flag = false;
+  $('.submit').hide();
   var link = '#{@link.id}';
+  var confirm_code = '#{@link.confirm_code}';
   
   $('.get_confirm').click(function(){
     
@@ -27,6 +28,17 @@
     $('.confirm_form').show();
   });
   
-  $('.submit').click(function(){
-    $('.confirm_form').remove();
-  });
+    $('input#confirm_code').keyup(function(){
+      var input = $('input#confirm_code').val();
+      if (input == ''){
+        $('.submit').hide();
+      } else {
+        if (input == confirm_code) {
+          $('.submit').show();
+        } else {
+          $('.incorrect_confirm').remove();
+          $('.messages').append("<p class='incorrect_confirm'>Code not correct</p>");
+        }
+      }
+    });
+  
