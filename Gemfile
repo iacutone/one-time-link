@@ -23,7 +23,7 @@ gem 'simple_form'
 gem 'twilio-ruby', '~> 3.12'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
-gem 'unicorn'
+gem 'thin'
 gem 'whenever'
 
 group :development do
