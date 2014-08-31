@@ -19,12 +19,15 @@ gem 'paperclip', '~> 4.1.1'
 gem 'pg'
 gem "resque"
 gem 'sass-rails', '~> 4.0.0'
+gem 'sidekiq'
 gem 'simple_form'
 gem 'twilio-ruby', '~> 3.12'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 gem 'thin'
 gem 'whenever'
+
+gem 'rails_12factor', group: :production
 
 group :development do
   gem 'better_errors'
@@ -36,7 +39,6 @@ group :development do
   gem 'meta_request'
   gem 'pry-rails'
   gem 'quiet_assets'
-  gem 'thin'
   gem 'xray-rails'
 end
 
