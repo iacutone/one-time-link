@@ -1,1 +1,32 @@
-hi!
+%h1 Download the linked file
+
+= link_to 'Get confirmation code', "#", class: 'btn get_confirm'
+
+.confirm_form
+  %h3 Enter Confirmation Code
+  %p (from text message)
+  = form_tag params, method: :get do 
+    = text_field_tag :confirm_code
+    = submit_tag 'Submit', class: 'btn submit'
+
+:javascript
+  $('.confirm_form').hide();
+  
+  var flag = false;
+  var link = '#{@link.id}';
+  
+  $('.get_confirm').click(function(){
+    
+    $.ajax({
+      type: "POST",
+      url: '/links/send_text_message',
+      data: { id: link }
+    });
+    
+    $('.get_confirm').remove();
+    $('.confirm_form').show();
+  });
+  
+  $('.submit').click(function(){
+    $('.confirm_form').remove();
+  });

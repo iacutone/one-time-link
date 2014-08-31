@@ -1,9 +1,23 @@
 class LinksController < ApplicationController
-  before_action :set_link, only: [:show]
+  before_action :set_link, only: [:show, :send_text_message]
 
   # GET /links/1
   # GET /links/1.json
   def show
+    if params[:confirm_code].present?
+      if params[:confirm_code] == @link.confirm_code
+        link = open(@link.s3_url.url)
+        send_data(link.read)
+        @link.s3_url.destroy
+      else
+        flash[:error] = 'Confirmation code is not correct.'
+      end
+    end
+  end
+  
+  def send_text_message
+    twilio = TwilioApi.new
+    twilio.text_confirmation(@link)
   end
 
   # GET /links/new
@@ -18,6 +32,7 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
+        LinkMailer.email_link(@link).deliver
         format.html { redirect_to user_path(current_user), notice: 'Link was successfully created.' }
         format.json { render action: 'show', status: :created, location: @link }
       else
