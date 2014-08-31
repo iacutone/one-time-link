@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          
   has_many :links
   
-  validates :phone_number_format
+  validate :phone_number_format
   
   def phone_number_format
     if self.phone_number?
