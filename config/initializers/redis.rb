@@ -1,1 +1,1 @@
-Redis.new(url: (ENV['REDISTOGO_URL']))
+# Redis.new(url: (ENV['REDISTOGO_URL']))

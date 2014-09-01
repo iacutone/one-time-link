@@ -1,28 +1,8 @@
-== README
+###One Time Link
+===
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Encrypted one time links.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. Upload a file (goes to S3)
+2. Send link to user via email
+3. User goes to app and downloads the link with a confirmation code sent via text message.
