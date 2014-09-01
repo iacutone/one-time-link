@@ -1,4 +1,4 @@
 %h1 One Time Link
 %p= @link.user.name + ' sent you a file to download.'
 %p Click on the link below in order to download the file.
-= link_to 'Click here', link_path(@link)
+= link_to 'Click here', link_url(@link)
