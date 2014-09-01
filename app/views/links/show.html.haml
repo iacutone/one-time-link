@@ -34,6 +34,7 @@
         $('.submit').hide();
       } else {
         if (input == confirm_code) {
+          $('.incorrect_confirm').remove();
           $('.submit').show();
         } else {
           $('.incorrect_confirm').remove();

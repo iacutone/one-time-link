@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   validate :phone_number_format
   validates_presence_of :email, :name, :phone_number, :password_confirmation
   validates_uniqueness_of :email
-  validates_numericality_of :phone_number
   
   def phone_number_format
     if self.phone_number?
