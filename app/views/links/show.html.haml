@@ -9,7 +9,8 @@
     = text_field_tag :confirm_code, '', placeholder: 'Enter confirmation code'
     = submit_tag 'Submit', class: 'btn submit'
   .messages
-  
+
+.congrats  
 .back_link
 
 :javascript
@@ -48,8 +49,7 @@
   $('.submit').click(function(){
     $('h1').remove();
     $('.confirm_form').remove();
+    $('.congrats').append("<h3>Download successful!</h3>");
     $('.back_link').append("<a href='#{root_url}'>Back</a>");
   });
-  
-  $('.back_link').append("<a href='#{root_url}'>Back</a>");
   

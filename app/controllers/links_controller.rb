@@ -8,7 +8,9 @@ class LinksController < ApplicationController
       if params[:confirm_code] == @link.confirm_code
         link = open(@link.s3_url.url)
         send_data(link.read)
-        DestroyLink.perform_async(@link.id)
+        link.s3_url.destroy
+        link.destroy
+        # DestroyLink.perform_async(@link.id)
       end
     end
   end
