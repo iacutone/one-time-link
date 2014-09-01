@@ -19,6 +19,9 @@ class LinksController < ApplicationController
     twilio = TwilioApi.new
     twilio.text_confirmation(@link)
   end
+  
+  def about
+  end
 
   # GET /links/new
   def new

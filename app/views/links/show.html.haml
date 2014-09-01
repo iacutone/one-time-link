@@ -1,17 +1,20 @@
-%h1 Download the File
+.row
+  .col-xs-3
+  .col-xs-6
+    %h1 Download the File
 
-= link_to 'Get confirmation code', "#", class: 'btn get_confirm'
+    = link_to 'Get confirmation code', "#", class: 'btn get_confirm'
 
-.confirm_form
-  %h3 Enter Confirmation Code
-  %p (from text message)
-  = form_tag params, method: :get do 
-    = text_field_tag :confirm_code, '', placeholder: 'Enter confirmation code'
-    = submit_tag 'Submit', class: 'btn btn-primary submit'
-  .messages
+    .confirm_form
+      %h3 Enter Confirmation Code
+      %p (from text message)
+      = form_tag params, method: :get do 
+        = text_field_tag :confirm_code, '', placeholder: 'Enter confirmation code'
+        .messages
+        = submit_tag 'Submit', class: 'btn btn-primary submit'
 
-.congrats  
-.back_link
+    .congrats  
+    .back_link
 
 :javascript
   $('.confirm_form').hide();

@@ -8,5 +8,6 @@ OneTimeLink::Application.routes.draw do
     post :send_text_message
   end
   
+  get '/about' => 'links#about'
   root 'links#new'
 end
