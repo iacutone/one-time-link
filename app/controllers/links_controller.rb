@@ -9,7 +9,6 @@ class LinksController < ApplicationController
         link = open(@link.s3_url.url)
         send_data(link.read)
         DestroyLink.perform_async(@link.id)
-        redirect_to root_url
       end
     end
   end
