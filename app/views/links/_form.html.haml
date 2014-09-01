@@ -7,7 +7,7 @@
           %li= msg
 
   .field
-    = f.text_field :email, placeholder: 'Enter email'
+    = f.text_field :email, placeholder: 'Enter recipient email'
   .field
     = f.file_field :s3_url
     = f.hidden_field :user_id, value: current_user.id

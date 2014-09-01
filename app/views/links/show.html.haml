@@ -7,7 +7,7 @@
   %p (from text message)
   = form_tag params, method: :get do 
     = text_field_tag :confirm_code, '', placeholder: 'Enter confirmation code'
-    = submit_tag 'Submit', class: 'btn submit'
+    = submit_tag 'Submit', class: 'btn btn-primary submit'
   .messages
 
 .congrats  
